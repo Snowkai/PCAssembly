@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PCAssembly.src.pcinterfaces
 {
-    internal abstract class InterfacePC: Ipcinterfaces
+    internal abstract class InterfacePC: IPCinterfaces
     {
         public required string ActiveType { get; set; }
         private string[]? AllTypes { get; set; }

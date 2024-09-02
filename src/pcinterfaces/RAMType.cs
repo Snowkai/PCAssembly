@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace PCAssembly.src.pcinterfaces
 {
-    internal class Ram : InterfacePC
+    internal class RAMType : InterfacePC
     {
         private string RamType;
         public string[] AllTypes { get; set; }
 
-        public Ram()
+        public RAMType()
         {
             RamType = "None";
             AllTypes = new string[] {

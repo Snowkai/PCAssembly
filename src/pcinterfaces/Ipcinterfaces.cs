@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PCAssembly.src.pcinterfaces
 {
-    internal interface Ipcinterfaces
+    internal interface IPCinterfaces
     {
         public string ActiveType { get; set; }
 
