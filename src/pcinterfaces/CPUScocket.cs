@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace PCAssembly.src.pcinterfaces
 {
-    internal class CPUScocket : InterfacePC
+    internal class CPUScocket : IPCinterfaces
     {
-        public required string SocketType { get; set; }
-        private string[] AllTypes { get; set; }
+        public string SocketType;
+        private string[] AllTypes;
         public CPUScocket() 
         {
             SocketType = "None";
@@ -26,21 +26,25 @@ namespace PCAssembly.src.pcinterfaces
         }
 
 
-        string GetActiveType()
+        public string GetActiveType()
         {
             return SocketType;
         }
-        string[] GetAllTypesList()
+        public string[] GetAllTypesList()
         {
             return AllTypes;
         }
-        void SetActiveType(string type) 
+        public void SetActiveType(string type) 
         {
             foreach (var item in AllTypes)
             {
                 if (type == item)
                 {
                     SocketType = item;
+                }
+                else
+                {
+                    SocketType = "None";
                 }
             }
         }

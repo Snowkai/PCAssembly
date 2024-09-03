@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PCAssembly.src.pcinterfaces
 {
-    internal class PCIExpress: InterfacePC
+    internal class PCIExpress: IPCinterfaces
     {
         private string PCIEType;
         public string[] AllTypes { get; set; }

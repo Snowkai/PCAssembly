@@ -4,9 +4,18 @@
              x:Class="PCAssembly.Pages.PCConfig"
              Title="PCConfig">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label Text="CPU"/>
+        <HorizontalStackLayout>
+            <Label Text="Name"/>
+            <Entry x:Name="CPUName"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Socket"/>
+            <Picker x:Name="CPUSocketPicker" SelectedIndexChanged="CPUSocketPicker_SelectedIndexChanged"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="RAM"/>
+            <Entry x:Name="RamName"/>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

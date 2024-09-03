@@ -9,8 +9,17 @@ namespace PCAssembly.src.pcmodules
 {
     internal class CPU
     {
-        string? Name { get; set; }
-        CPUScocket? CPUScocket { get; set; }
-        RAMType? RAMType { get; set; }
+        public string Name;
+        public CPUScocket CPUScocket;
+        public RAMType RAMType;
+        public CPU() 
+        {
+            Name = "None";
+            var _valueSocket  = new CPUScocket();
+            CPUScocket = _valueSocket;
+            var _valueRAM = new RAMType();
+            RAMType = _valueRAM;
+        }
+
     }
 }

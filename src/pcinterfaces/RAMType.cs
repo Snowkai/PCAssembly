@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PCAssembly.src.pcinterfaces
 {
-    internal class RAMType : InterfacePC
+    internal class RAMType : IPCinterfaces
     {
         private string RamType;
         public string[] AllTypes { get; set; }
