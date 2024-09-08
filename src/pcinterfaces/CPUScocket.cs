@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace PCAssembly.src.pcinterfaces
 {
-    internal class CPUScocket : IPCinterfaces
+    internal class CPUSocket : IPCinterfaces
     {
         public string SocketType;
         private string[] AllTypes;
-        public CPUScocket() 
+        public CPUSocket() 
         {
             SocketType = "None";
             AllTypes = new string[] { 

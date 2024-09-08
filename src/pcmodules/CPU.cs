@@ -1,6 +1,7 @@
 ﻿using PCAssembly.src.pcinterfaces;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,16 +10,24 @@ namespace PCAssembly.src.pcmodules
 {
     internal class CPU
     {
+        public ObservableCollection<string> Sockets;
+        public ObservableCollection<string> RAMTypes;
+        public string ActiveSocket;
         public string Name;
-        public CPUScocket CPUScocket;
-        public RAMType RAMType;
+        public string ActiveRAMType;
+        private CPUSocket CPUSocket;
+        private RAMType RAMType;
         public CPU() 
         {
             Name = "None";
-            var _valueSocket  = new CPUScocket();
-            CPUScocket = _valueSocket;
+            ActiveSocket = "None";
+            ActiveRAMType = "None";
+            var _valueSocket  = new CPUSocket();
+            CPUSocket = _valueSocket;
             var _valueRAM = new RAMType();
             RAMType = _valueRAM;
+            Sockets = new ObservableCollection<string>(CPUSocket.GetAllTypesList());
+            RAMTypes = new ObservableCollection<string>(RAMType.GetAllTypesList());
         }
 
     }

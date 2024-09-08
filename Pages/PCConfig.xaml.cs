@@ -1,22 +1,34 @@
 using PCAssembly.src.pcmodules;
+using System.Collections.ObjectModel;
 
 namespace PCAssembly.Pages;
 
 public partial class PCConfig : ContentPage
 {
+    CPU CPU = new CPU();
 
-	CPU CPU { get; set; }
-	public PCConfig()
-	{
-		InitializeComponent();
-
-		CPU = new CPU();
-		Picker CPUSocketPicker = new Picker();
-		CPUSocketPicker.ItemsSource = CPU.CPUScocket.GetAllTypesList();
-	}
-
-    private void CPUSocketPicker_SelectedIndexChanged(object sender, EventArgs e)
+    public PCConfig()
     {
-		CPU.CPUScocket.SetActiveType(CPUSocketPicker.Items[CPUSocketPicker.SelectedIndex]);
+        InitializeComponent();
+
+        // Привязка данных
+        CPUNameEntry.BindingContext = CPU;
+        CPUNameEntry.SetBinding(Entry.TextProperty, "Name");
+
+        CPUSocketPicker.ItemsSource = CPU.Sockets;
+        CPURamPicker.ItemsSource = CPU.RAMTypes;
     }
+
+    private void CpuSocketPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        CPU.ActiveSocket = picker.Items[picker.SelectedIndex];
+    }
+
+    private void CpuRamPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        CPU.ActiveRAMType = picker.Items[picker.SelectedIndex];
+    }
+
 }

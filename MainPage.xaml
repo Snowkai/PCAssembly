@@ -4,8 +4,8 @@
              x:Class="PCAssembly.MainPage" BackgroundColor="#1C1C1C" HideSoftInputOnTapped="True">
 
     <ScrollView>
-        <VerticalStackLayout>
-            <Button ImageSource="plus.png" BackgroundColor="#282828" HorizontalOptions="Center" MaximumHeightRequest="100" Clicked="OnButtonCliked"/>
+        <VerticalStackLayout x:Name="vsl">
+            <Button ImageSource="plus.png" BackgroundColor="#1C1C1C" HorizontalOptions="Center" MaximumHeightRequest="100" Clicked="OnButtonCliked"/>
         </VerticalStackLayout>
     </ScrollView>
 

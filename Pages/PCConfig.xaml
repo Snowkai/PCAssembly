@@ -2,20 +2,23 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PCAssembly.Pages.PCConfig"
-             Title="PCConfig">
+             Title="PCConfig" BackgroundColor="#1C1C1C">
     <VerticalStackLayout>
-        <Label Text="CPU"/>
-        <HorizontalStackLayout>
-            <Label Text="Name"/>
-            <Entry x:Name="CPUName"/>
+        <Label Text="CPU" FontAttributes="Bold" FontSize="16" />
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Name" />
+            <Entry x:Name="CPUNameEntry" Placeholder="Name of CPU" MinimumWidthRequest="200" />
         </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <Label Text="Socket"/>
-            <Picker x:Name="CPUSocketPicker" SelectedIndexChanged="CPUSocketPicker_SelectedIndexChanged"/>
+
+        <HorizontalStackLayout Spacing="10" x:Name="HSLSocket">
+            <Label Text="Socket" />
+            <Picker x:Name="CPUSocketPicker" SelectedIndexChanged="CpuSocketPicker_SelectedIndexChanged" />
         </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <Label Text="RAM"/>
-            <Entry x:Name="RamName"/>
+
+        <HorizontalStackLayout Spacing="10" x:Name="HSLRam">
+            <Label Text="RAM" />
+            <Picker x:Name="CPURamPicker" SelectedIndexChanged="CpuRamPicker_SelectedIndexChanged" />
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

@@ -10,7 +10,7 @@ namespace PCAssembly.src.pcmodules
     internal class Motherboard
     {
         string? Name { get; set; }
-        CPUScocket? CPUScocket { get; set; }
+        CPUSocket? CPUSocket { get; set; }
         RAMType? RAMType { get; set; }
         PCIExpress? PCIExpress { get; set; }
     }

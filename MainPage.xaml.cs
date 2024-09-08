@@ -4,7 +4,7 @@
     {
         public MainPage()
         {
-            InitializeComponent();
+            InitializeComponent();       
         }
 
         private void OnButtonCliked(object sender, EventArgs e)
