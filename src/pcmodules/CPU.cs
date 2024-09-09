@@ -10,11 +10,13 @@ namespace PCAssembly.src.pcmodules
 {
     internal class CPU
     {
-        public ObservableCollection<string> Sockets;
-        public ObservableCollection<string> RAMTypes;
         public string ActiveSocket;
         public string Name;
         public string ActiveRAMType;
+
+        public ObservableCollection<string> Sockets;
+        public ObservableCollection<string> RAMTypes;
+
         private CPUSocket CPUSocket;
         private RAMType RAMType;
         public CPU() 
@@ -22,10 +24,10 @@ namespace PCAssembly.src.pcmodules
             Name = "None";
             ActiveSocket = "None";
             ActiveRAMType = "None";
-            var _valueSocket  = new CPUSocket();
-            CPUSocket = _valueSocket;
-            var _valueRAM = new RAMType();
-            RAMType = _valueRAM;
+
+            CPUSocket = new CPUSocket();
+            RAMType = new RAMType();
+
             Sockets = new ObservableCollection<string>(CPUSocket.GetAllTypesList());
             RAMTypes = new ObservableCollection<string>(RAMType.GetAllTypesList());
         }
