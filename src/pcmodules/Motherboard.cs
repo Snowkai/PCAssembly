@@ -1,16 +1,11 @@
 ﻿using PCAssembly.src.pcinterfaces;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PCAssembly.src.pcmodules
 {
     internal class Motherboard
     {
-        public string Name;
+        public string Name { get; set; }
         public string ActiveSocket;
         public string ActiveRAMType;
         public string ActivePCIE;

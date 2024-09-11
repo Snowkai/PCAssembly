@@ -1,15 +1,25 @@
 ﻿using PCAssembly.src.pcinterfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace PCAssembly.src.pcmodules
 {
     internal class RAM
     {
-        string? Name {  get; set; }  
-        RAMType? RAMType { get; set; }
+        public string Name { get; set; }
+        public string ActiveRAMType;
+
+        public ObservableCollection<string> RAMTypes;
+
+        private RAMType RAMType;
+
+        public RAM() 
+        {
+            Name = "None";
+            ActiveRAMType = "None";
+
+            RAMType = new RAMType();
+            RAMTypes = new ObservableCollection<string>(RAMType.GetAllTypesList());
+        }
+
     }
 }

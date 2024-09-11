@@ -4,21 +4,62 @@
              x:Class="PCAssembly.Pages.PCConfig"
              Title="PCConfig" BackgroundColor="#1C1C1C">
     <VerticalStackLayout>
-        <Label Text="CPU" FontAttributes="Bold" FontSize="16" />
-
-        <HorizontalStackLayout Spacing="10">
-            <Label Text="Name" />
-            <Entry x:Name="CPUNameEntry" Placeholder="Name of CPU" MinimumWidthRequest="200" />
-        </HorizontalStackLayout>
-
-        <HorizontalStackLayout Spacing="10" x:Name="HSLSocket">
-            <Label Text="Socket" />
-            <Picker x:Name="CPUSocketPicker" SelectedIndexChanged="CpuSocketPicker_SelectedIndexChanged" />
-        </HorizontalStackLayout>
-
-        <HorizontalStackLayout Spacing="10" x:Name="HSLRam">
-            <Label Text="RAM" />
-            <Picker x:Name="CPURamPicker" SelectedIndexChanged="CpuRamPicker_SelectedIndexChanged" />
-        </HorizontalStackLayout>
+        <Border>
+            <VerticalStackLayout>
+                <Label Text="CPU" FontAttributes="Bold" FontSize="16" />
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Name" VerticalOptions="Center"/>
+                    <Entry x:Name="CPUNameEntry" Placeholder="Name of CPU" MinimumWidthRequest="200" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Socket" />
+                    <Picker x:Name="CPUSocketPicker" SelectedIndexChanged="CpuSocketPicker_SelectedIndexChanged" />
+                    <BoxView x:Name="CPUSocketBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="RAM" />
+                    <Picker x:Name="CPURamPicker" SelectedIndexChanged="CpuRamPicker_SelectedIndexChanged" />
+                    <BoxView x:Name="CPURAMBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Border>
+        <Border>
+            <VerticalStackLayout>
+                <Label Text="Motherboard" FontAttributes="Bold" FontSize="16" />
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Name" />
+                    <Entry x:Name="MNameEntry" Placeholder="Name of Motherboard" MinimumWidthRequest="200" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Socket" />
+                    <Picker x:Name="MSocketPicker" SelectedIndexChanged="MSocketPicker_SelectedIndexChanged" />
+                    <BoxView x:Name="MSocketBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="RAM" />
+                    <Picker x:Name="MRamPicker" SelectedIndexChanged="MRamPicker_SelectedIndexChanged" />
+                    <BoxView x:Name="MRAMBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="PCIE" />
+                    <Picker x:Name="MPCIEPicker" SelectedIndexChanged="MPCIEPicker_SelectedIndexChanged" />
+                    <BoxView x:Name="MPCIBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Border>
+        <Border>
+            <VerticalStackLayout>
+                <Label Text="RAM" FontAttributes="Bold" FontSize="16" />
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Name" />
+                    <Entry x:Name="RAMNameEntry" Placeholder="Name of RAM" MinimumWidthRequest="200" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Type" />
+                    <Picker x:Name="RAMTypePicker" SelectedIndexChanged="RAMTypePicker_SelectedIndexChanged" />
+                    <BoxView x:Name="RAMBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Border>
     </VerticalStackLayout>
 </ContentPage>

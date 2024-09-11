@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PCAssembly.src.pcinterfaces
+﻿namespace PCAssembly.src.pcinterfaces
 {
     internal class CPUSocket : IPCinterfaces
     {
         public string SocketType;
         private string[] AllTypes;
-        public CPUSocket() 
+        public CPUSocket()
         {
             SocketType = "None";
             AllTypes = new string[] { 
@@ -34,7 +28,7 @@ namespace PCAssembly.src.pcinterfaces
         {
             return AllTypes;
         }
-        public void SetActiveType(string type) 
+        public void SetActiveType(string type)
         {
             foreach (var item in AllTypes)
             {
