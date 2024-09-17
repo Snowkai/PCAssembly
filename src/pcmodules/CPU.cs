@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace PCAssembly.src.pcmodules
 {
-    internal class CPU
+    public class CPU
     {
         public string ActiveSocket;
         public string Name { get; set; }

@@ -1,3 +1,6 @@
+using Microsoft.Extensions.Options;
+using PCAssembly.src.db;
+using PCAssembly.src.db.Models;
 using PCAssembly.src.pcmodules;
 
 namespace PCAssembly.Pages;
@@ -101,5 +104,16 @@ public partial class PCConfig : ContentPage
             RAMBox.Color = Colors.Red;
         }
         
+    }
+
+    private void Save_button_Clicked(object sender, EventArgs e)
+    {
+        PC pc = new PC();
+        pc.Name = ConfigName.Text;
+        pc.CPU = CPU;
+        pc.Motherboard = Motherboard;
+        pc.RAM = RAM;
+        Database db = new Database();
+        db.SaveItemAsync(pc);
     }
 }

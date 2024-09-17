@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace PCAssembly.src.pcmodules
 {
-    internal class RAM
+    public class RAM
     {
         public string Name { get; set; }
         public string ActiveRAMType;

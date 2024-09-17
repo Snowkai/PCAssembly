@@ -2,8 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PCAssembly.Pages.PCConfig"
-             Title="PCConfig" BackgroundColor="#1C1C1C">
+             Title="PCConfig">
     <VerticalStackLayout>
+        <Border>
+            <HorizontalStackLayout>
+                <Label Text="Config Name"/>
+                <Entry x:Name="ConfigName"/>
+            </HorizontalStackLayout>
+        </Border>
         <Border>
             <VerticalStackLayout>
                 <Label Text="CPU" FontAttributes="Bold" FontSize="16" />
@@ -61,5 +67,8 @@
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>
+        <VerticalStackLayout>
+            <Button Text="Save" Clicked="Save_button_Clicked" HorizontalOptions="End"/>
+        </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

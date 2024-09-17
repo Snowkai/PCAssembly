@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace PCAssembly.src.pcmodules
 {
-    internal class Motherboard
+    public class Motherboard
     {
         public string Name { get; set; }
         public string ActiveSocket;
