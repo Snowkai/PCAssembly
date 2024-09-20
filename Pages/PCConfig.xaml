@@ -67,8 +67,9 @@
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>
-        <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Button Text="Delete" Clicked="Delete_button_Clicked" HorizontalOptions="End"/>
             <Button Text="Save" Clicked="Save_button_Clicked" HorizontalOptions="End"/>
-        </VerticalStackLayout>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

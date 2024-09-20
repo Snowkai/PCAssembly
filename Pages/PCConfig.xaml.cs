@@ -7,6 +7,7 @@ namespace PCAssembly.Pages;
 
 public partial class PCConfig : ContentPage
 {
+    PC pc = new PC();
     CPU CPU = new CPU();
     Motherboard Motherboard = new Motherboard();
     RAM RAM = new RAM();
@@ -108,12 +109,17 @@ public partial class PCConfig : ContentPage
 
     private void Save_button_Clicked(object sender, EventArgs e)
     {
-        PC pc = new PC();
         pc.Name = ConfigName.Text;
         pc.CPU = CPU;
         pc.Motherboard = Motherboard;
         pc.RAM = RAM;
         Database db = new Database();
         db.SaveItemAsync(pc);
+    }
+
+    private void Delete_button_Clicked(object sender, EventArgs e)
+    {
+        Database db = new Database();
+        db.DeleteItemAsync(pc);
     }
 }
