@@ -10,34 +10,46 @@ namespace PCAssembly.src.db
 {
     class Database
     {
-        private readonly SQLiteAsyncConnection _database;
+        private SQLiteAsyncConnection _database;
 
-        public Database()
+        async Task Init()
         {
+            if (_database is not null)
+                return;
+
             _database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-            _database.CreateTableAsync<PC>().Wait();
+            var result = await _database.CreateTableAsync<PC>();
         }
 
-        public Task<List<PC>> GetItemsAsync()
+        public async Task<List<PC>> GetItemsAsync()
         {
-            return _database.Table<PC>().ToListAsync();
+            await Init();
+            return await _database.Table<PC>().ToListAsync();
+        }
+        public async Task<PC> GetItemAsync(int id)
+        {
+            await Init();
+            return await _database.Table<PC>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
 
-        public Task<int> SaveItemAsync(PC item)
+
+        public async Task<int> SaveItemAsync(PC item)
         {
+            await Init();
             if (item.Id != 0)
             {
-                return _database.UpdateAsync(item);
+                return await _database.UpdateAsync(item);
             }
             else
             {
-                return _database.InsertAsync(item);
+                return await _database.InsertAsync(item);
             }
         }
 
-        public Task<int> DeleteItemAsync(PC item)
+        public async Task<int> DeleteItemAsync(PC item)
         {
-            return _database.DeleteAsync(item);
+            await Init();
+            return await _database.DeleteAsync(item);
         }
     }
 }

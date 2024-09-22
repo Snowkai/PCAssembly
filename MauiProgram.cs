@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using PCAssembly.src.db;
 
 namespace PCAssembly
 {
@@ -18,7 +19,7 @@ namespace PCAssembly
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-
+            builder.Services.AddSingleton<Database>();
             return builder.Build();
         }
     }

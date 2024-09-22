@@ -7,7 +7,7 @@
         <Border>
             <HorizontalStackLayout>
                 <Label Text="Config Name"/>
-                <Entry x:Name="ConfigName"/>
+                <Entry x:Name="ConfigName" MinimumWidthRequest="200"/>
             </HorizontalStackLayout>
         </Border>
         <Border>
