@@ -1,4 +1,3 @@
-using Microsoft.Extensions.Options;
 using PCAssembly.src.db;
 using PCAssembly.src.db.Models;
 using PCAssembly.src.pcmodules;
@@ -11,6 +10,7 @@ public partial class PCConfig : ContentPage
     CPU CPU = new CPU();
     Motherboard Motherboard = new Motherboard();
     RAM RAM = new RAM();
+    Database Database = new Database();
 
     public PCConfig()
     {
@@ -107,13 +107,17 @@ public partial class PCConfig : ContentPage
         
     }
 
-    private void Save_button_Clicked(object sender, EventArgs e)
+    private async void Save_button_Clicked(object sender, EventArgs e)
     {
-
+        pc.Name = ConfigName.Text;
+        pc.CPU = CPU;
+        pc.Motherboard = Motherboard;
+        pc.RAM = RAM;
+        await Database.SaveItemAsync(pc);
     }
 
-    private void Delete_button_Clicked(object sender, EventArgs e)
+    private async void Delete_button_Clicked(object sender, EventArgs e)
     {
-
+        await Database.DeleteItemAsync(pc);
     }
 }
