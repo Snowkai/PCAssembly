@@ -19,7 +19,6 @@ namespace PCAssembly
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-            builder.Services.AddSingleton<Database>();
             return builder.Build();
         }
     }

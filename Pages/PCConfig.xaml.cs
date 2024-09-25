@@ -2,86 +2,94 @@ using PCAssembly.src.db;
 using PCAssembly.src.db.Models;
 using PCAssembly.src.pcmodules;
 
+
 namespace PCAssembly.Pages;
 
 public partial class PCConfig : ContentPage
 {
-    PC pc = new PC();
-    CPU CPU = new CPU();
-    Motherboard Motherboard = new Motherboard();
-    RAM RAM = new RAM();
-    Database Database = new Database();
+    private PC pc = new PC();
+    private CPU _cpu = new CPU();
+    private Motherboard _motherboard = new Motherboard();
+    private RAM _ram = new RAM();
+    private Database _database = new Database();
 
     public PCConfig()
     {
         InitializeComponent();
+        //Initialize fields
+        pc = new PC();
+        _cpu = new CPU();
+        _motherboard = new Motherboard();
+        _ram = new RAM();
+        _database = new Database();
 
         // CPU
-        CPUNameEntry.BindingContext = CPU;
+        CPUNameEntry.BindingContext = _cpu;
         CPUNameEntry.SetBinding(Entry.TextProperty, "Name");
 
-        CPUSocketPicker.ItemsSource = CPU.Sockets;
-        CPURamPicker.ItemsSource = CPU.RAMTypes;
+        CPUSocketPicker.ItemsSource = _cpu.Sockets;
+        CPURamPicker.ItemsSource = _cpu.RAMTypes;
         //Motherboard
-        MNameEntry.BindingContext = Motherboard;
+        MNameEntry.BindingContext = _motherboard;
         MNameEntry.SetBinding(Entry.TextProperty, "Name");
 
-        MSocketPicker.ItemsSource = Motherboard.Sockets;
-        MRamPicker.ItemsSource = Motherboard.RAMTypes;
-        MPCIEPicker.ItemsSource = Motherboard.PCIEs;
+        MSocketPicker.ItemsSource = _motherboard.Sockets;
+        MRamPicker.ItemsSource = _motherboard.RAMTypes;
+        MPCIEPicker.ItemsSource = _motherboard.PCIEs;
         //RAM
-        RAMNameEntry.BindingContext = RAM;
+        RAMNameEntry.BindingContext = _ram;
         RAMNameEntry.SetBinding(Entry.TextProperty, "Name");
 
-        RAMTypePicker.ItemsSource = RAM.RAMTypes;
+        RAMTypePicker.ItemsSource = _ram.RAMTypes;
+
     }
 
     private void CpuSocketPicker_SelectedIndexChanged(object sender, EventArgs e)
     {
         var picker = (Picker)sender;
-        CPU.ActiveSocket = picker.Items[picker.SelectedIndex];
+        _cpu.ActiveSocket = picker.Items[picker.SelectedIndex];
         CheckCorrespond();
     }
 
     private void CpuRamPicker_SelectedIndexChanged(object sender, EventArgs e)
     {
         var picker = (Picker)sender;
-        CPU.ActiveRAMType = picker.Items[picker.SelectedIndex];
+        _cpu.ActiveRAMType = picker.Items[picker.SelectedIndex];
         CheckCorrespond();
     }
 
     private void MSocketPicker_SelectedIndexChanged(object sender, EventArgs e)
     {
         var picker = (Picker)sender;
-        Motherboard.ActiveSocket = picker.Items[picker.SelectedIndex];
+        _motherboard.ActiveSocket = picker.Items[picker.SelectedIndex];
         CheckCorrespond();
     }
 
     private void MRamPicker_SelectedIndexChanged(object sender, EventArgs e)
     {
         var picker = (Picker)sender;
-        Motherboard.ActiveRAMType = picker.Items[picker.SelectedIndex];
+        _motherboard.ActiveRAMType = picker.Items[picker.SelectedIndex];
         CheckCorrespond();
     }
 
     private void MPCIEPicker_SelectedIndexChanged(object sender, EventArgs e)
     {
         var picker = (Picker)sender;
-        Motherboard.ActivePCIE = picker.Items[picker.SelectedIndex];
+        _motherboard.ActivePCIE = picker.Items[picker.SelectedIndex];
         CheckCorrespond();
     }
 
     private void RAMTypePicker_SelectedIndexChanged(object sender, EventArgs e)
     {
         var picker = (Picker)sender;
-        RAM.ActiveRAMType = picker.Items[picker.SelectedIndex];
+        _ram.ActiveRAMType = picker.Items[picker.SelectedIndex];
         CheckCorrespond();
     }
 
     private void CheckCorrespond()
     {
         //Socket
-        if (CPU.ActiveSocket == Motherboard.ActiveSocket)
+        if (_cpu.ActiveSocket == _motherboard.ActiveSocket)
         {
             CPUSocketBox.Color = Colors.Green;
             MSocketBox.Color = Colors.Green;
@@ -92,7 +100,7 @@ public partial class PCConfig : ContentPage
             MSocketBox.Color = Colors.Red;
         }
         //RAMType
-        if (CPU.ActiveRAMType == Motherboard.ActiveRAMType && Motherboard.ActiveRAMType == RAM.ActiveRAMType)
+        if (_cpu.ActiveRAMType == _motherboard.ActiveRAMType && _motherboard.ActiveRAMType == _ram.ActiveRAMType)
         {
             CPURAMBox.Color = Colors.Green;
             MRAMBox.Color = Colors.Green;
@@ -107,17 +115,17 @@ public partial class PCConfig : ContentPage
         
     }
 
-    private async void Save_button_Clicked(object sender, EventArgs e)
+    public async void Save_button_Clicked(object sender, EventArgs e)
     {
         pc.Name = ConfigName.Text;
-        pc.CPU = CPU;
-        pc.Motherboard = Motherboard;
-        pc.RAM = RAM;
-        await Database.SaveItemAsync(pc);
+        pc.CPU = _cpu;
+        pc.Motherboard = _motherboard;
+        pc.RAM = _ram;
+        await _database.SaveItemAsync(pc);
     }
 
-    private async void Delete_button_Clicked(object sender, EventArgs e)
+    public async void Delete_button_Clicked(object sender, EventArgs e)
     {
-        await Database.DeleteItemAsync(pc);
+        await _database.DeleteItemAsync(pc);
     }
 }
