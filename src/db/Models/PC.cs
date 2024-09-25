@@ -13,8 +13,8 @@ namespace PCAssembly.src.db.Models
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; } = 0;
         public string Name { get; set; } = "None";
-        public CPU CPU { get; set; } = new CPU();
-        public Motherboard Motherboard { get; set; } = new Motherboard();
-        public RAM RAM { get; set; } = new RAM();
+        public string CPUName { get; set; } = "None";
+        public string MotherboardName { get; set; } = "None";
+        public string RAMName { get; set; } = "None";
     }
 }

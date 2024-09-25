@@ -7,11 +7,11 @@ namespace PCAssembly.Pages;
 
 public partial class PCConfig : ContentPage
 {
-    private PC pc = new PC();
-    private CPU _cpu = new CPU();
-    private Motherboard _motherboard = new Motherboard();
-    private RAM _ram = new RAM();
-    private Database _database = new Database();
+    private PC pc;
+    private CPU _cpu;
+    private Motherboard _motherboard;
+    private RAM _ram;
+    private Database _database;
 
     public PCConfig()
     {
@@ -118,10 +118,11 @@ public partial class PCConfig : ContentPage
     public async void Save_button_Clicked(object sender, EventArgs e)
     {
         pc.Name = ConfigName.Text;
-        pc.CPU = _cpu;
-        pc.Motherboard = _motherboard;
-        pc.RAM = _ram;
+        pc.CPUName = _cpu.Name;
+        pc.MotherboardName = _motherboard.Name;
+        pc.RAMName = _ram.Name;
         await _database.SaveItemAsync(pc);
+        await Navigation.PopAsync();
     }
 
     public async void Delete_button_Clicked(object sender, EventArgs e)
