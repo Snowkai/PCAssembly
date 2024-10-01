@@ -40,5 +40,12 @@ namespace PCAssembly
                 };
             });
         }
+
+        private void btnItem_Clicked(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            var pcName = button.Text as string;
+
+        }
     }
 }
