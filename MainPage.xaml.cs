@@ -32,11 +32,16 @@ namespace PCAssembly
             colView.ItemsSource = pcList;
             colView.ItemTemplate = new DataTemplate(() =>
             {
-                var configNameLabel = new Label();
-                configNameLabel.SetBinding(Label.TextProperty, "Name");
+                var configButton = new Button();
+                configButton.BindingContextChanged += (sender, args) =>
+                {
+                    var button = sender as Button;
+                    var item = button.BindingContext as PC;
+                    button.Text = CreateString(item);
+                };
 
                 return new StackLayout {
-                Children = {configNameLabel} 
+                Children = {configButton} 
                 };
             });
         }
@@ -46,6 +51,11 @@ namespace PCAssembly
             var button = sender as Button;
             var pcName = button.Text as string;
 
+        }
+
+        private string CreateString(PC item)
+        {
+            return $"Config name: {item.Name}\nCPU: {item.CPUName} Motherboard: {item.MotherboardName} RAM: {item.RAMName}"; ;
         }
     }
 }
