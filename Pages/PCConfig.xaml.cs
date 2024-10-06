@@ -44,6 +44,11 @@ public partial class PCConfig : ContentPage
 
     }
 
+    public PCConfig(PC item)
+    {
+        InitializeComponent();
+    }
+
     private void CpuSocketPicker_SelectedIndexChanged(object sender, EventArgs e)
     {
         var picker = (Picker)sender;

@@ -7,6 +7,7 @@ namespace PCAssembly
 {
     public partial class MainPage : ContentPage
     {
+        private List<PC> PCConfigList;
         public MainPage()
         {
             InitializeComponent();   
@@ -21,9 +22,9 @@ namespace PCAssembly
             colView.ItemsSource = await db.GetItemsAsync();
         }
 
-        private void OnButtonCliked(object sender, EventArgs e)
+        private async void OnButtonCliked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Pages.PCConfig());
+            await Navigation.PushAsync(new Pages.PCConfig());
         }
         private async void UpdateColView()
         {
@@ -36,9 +37,10 @@ namespace PCAssembly
                 configButton.BindingContextChanged += (sender, args) =>
                 {
                     var button = sender as Button;
-                    var item = button.BindingContext as PC;
+                    var item = button?.BindingContext as PC;
                     button.Text = CreateString(item);
                 };
+                configButton.Clicked += btnItem_Clicked;
 
                 return new StackLayout {
                 Children = {configButton} 
@@ -46,11 +48,11 @@ namespace PCAssembly
             });
         }
 
-        private void btnItem_Clicked(object sender, EventArgs e)
+        private async void btnItem_Clicked(object sender, EventArgs e)
         {
             var button = sender as Button;
-            var pcName = button.Text as string;
-
+            var item = button?.BindingContext as PC;
+            await Navigation.PushAsync(new Pages.PCConfig(item));
         }
 
         private string CreateString(PC item)
