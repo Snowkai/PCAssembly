@@ -14,7 +14,13 @@ namespace PCAssembly.src.db.Models
         public int Id { get; set; } = 0;
         public string Name { get; set; } = "None";
         public string CPUName { get; set; } = "None";
+        public string CPUSocket { get; set; } = "None";
+        public string CPURAam { get; set; } = "None";
         public string MotherboardName { get; set; } = "None";
+        public string MotherboardSocket { get; set; } = "None";
+        public string MotherboardRam { get; set; } = "None";
+        public string MotherboardPCI { get; set; } = "None";
         public string RAMName { get; set; } = "None";
+        public string RAMType { get; set; } = "None";
     }
 }

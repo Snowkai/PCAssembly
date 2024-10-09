@@ -17,6 +17,28 @@ public partial class PCConfig : ContentPage
     {
         InitializeComponent();
         //Initialize fields
+        Init();
+    }
+
+    public PCConfig(PC item)
+    {
+        InitializeComponent();
+        Init();
+        pc = item;
+        ConfigName.Text = item.Name;
+        CPUNameEntry.Text = item.CPUName;
+        CPUSocketPicker.SelectedItem = item.CPUSocket;
+        CPURamPicker.SelectedItem = item.CPURAam;
+        MNameEntry.Text = item.MotherboardName;
+        MSocketPicker.SelectedItem = item.MotherboardSocket;
+        MRamPicker.SelectedItem = item.MotherboardRam;
+        MPCIEPicker.SelectedItem = item.MotherboardPCI;
+        RAMNameEntry.Text = item.RAMName;
+        RAMTypePicker.SelectedItem = item.RAMType;
+    }
+
+    private void Init()
+    {
         pc = new PC();
         _cpu = new CPU();
         _motherboard = new Motherboard();
@@ -41,12 +63,6 @@ public partial class PCConfig : ContentPage
         RAMNameEntry.SetBinding(Entry.TextProperty, "Name");
 
         RAMTypePicker.ItemsSource = _ram.RAMTypes;
-
-    }
-
-    public PCConfig(PC item)
-    {
-        InitializeComponent();
     }
 
     private void CpuSocketPicker_SelectedIndexChanged(object sender, EventArgs e)
@@ -126,6 +142,12 @@ public partial class PCConfig : ContentPage
         pc.CPUName = _cpu.Name;
         pc.MotherboardName = _motherboard.Name;
         pc.RAMName = _ram.Name;
+        pc.CPUSocket = _cpu.ActiveSocket;
+        pc.CPURAam = _cpu.ActiveRAMType;
+        pc.MotherboardSocket = _motherboard.ActiveSocket;
+        pc.MotherboardRam = _motherboard.ActiveRAMType;
+        pc.MotherboardPCI = _motherboard.ActivePCIE;
+        pc.RAMType = _ram.ActiveRAMType;
         await _database.SaveItemAsync(pc);
         await Navigation.PopAsync();
     }
@@ -133,5 +155,6 @@ public partial class PCConfig : ContentPage
     public async void Delete_button_Clicked(object sender, EventArgs e)
     {
         await _database.DeleteItemAsync(pc);
+        await Navigation.PopAsync();
     }
 }

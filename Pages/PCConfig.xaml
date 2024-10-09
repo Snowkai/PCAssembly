@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PCAssembly.Pages.PCConfig"
              Title="PCConfig">
-    <VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
         <Border>
             <HorizontalStackLayout>
                 <Label Text="Config Name"/>
@@ -72,4 +73,5 @@
             <Button Text="Save" Clicked="Save_button_Clicked" HorizontalOptions="End"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
