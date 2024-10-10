@@ -26,6 +26,5 @@ namespace PCAssembly.src.pcmodules
             Sockets = new ObservableCollection<string>(CPUSocket.GetAllTypesList());
             RAMTypes = new ObservableCollection<string>(RAMType.GetAllTypesList());
         }
-
     }
 }

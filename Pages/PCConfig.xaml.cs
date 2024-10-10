@@ -11,6 +11,9 @@ public partial class PCConfig : ContentPage
     private CPU _cpu;
     private Motherboard _motherboard;
     private RAM _ram;
+    private Case _case;
+    private Videocard _videocard;
+    private PowerUnit _powerunit;
     private Database _database;
 
     public PCConfig()
@@ -32,9 +35,17 @@ public partial class PCConfig : ContentPage
         MNameEntry.Text = item.MotherboardName;
         MSocketPicker.SelectedItem = item.MotherboardSocket;
         MRamPicker.SelectedItem = item.MotherboardRam;
+        MFormFactorPicker.SelectedItem = item.MotherboardFormFactor;
         MPCIEPicker.SelectedItem = item.MotherboardPCI;
         RAMNameEntry.Text = item.RAMName;
         RAMTypePicker.SelectedItem = item.RAMType;
+        VideocardNameEntry.Text = item.VideocardName;
+        VideocardPCIEPicker.SelectedItem = item.VideocardPCIE;
+        CaseNameEntry.Text = item.CaseName;
+        CaseFormFactorPicker.SelectedItem = item.CaseFormFactor;
+        PowerUnitNameEntry.Text = item.PowerUnitName;
+        PowerUnitWattEntry.Text = item.PowerUnitWatt;
+        MarksText.Text = item.MarkText;
     }
 
     private void Init()
@@ -44,6 +55,9 @@ public partial class PCConfig : ContentPage
         _motherboard = new Motherboard();
         _ram = new RAM();
         _database = new Database();
+        _videocard = new Videocard();
+        _powerunit = new PowerUnit();
+        _case = new Case();
 
         // CPU
         CPUNameEntry.BindingContext = _cpu;
@@ -58,11 +72,30 @@ public partial class PCConfig : ContentPage
         MSocketPicker.ItemsSource = _motherboard.Sockets;
         MRamPicker.ItemsSource = _motherboard.RAMTypes;
         MPCIEPicker.ItemsSource = _motherboard.PCIEs;
+        MFormFactorPicker.ItemsSource = _motherboard.FormFactors;
         //RAM
         RAMNameEntry.BindingContext = _ram;
         RAMNameEntry.SetBinding(Entry.TextProperty, "Name");
 
         RAMTypePicker.ItemsSource = _ram.RAMTypes;
+        //Videocard
+        VideocardNameEntry.BindingContext = _videocard;
+        VideocardNameEntry.SetBinding(Entry.TextProperty, "Name");
+
+        VideocardPCIEPicker.ItemsSource = _videocard.PCIEs;
+        //PowerUnit
+        PowerUnitNameEntry.BindingContext = _powerunit;
+        PowerUnitNameEntry.SetBinding(Entry.TextProperty, "Name");
+        PowerUnitWattEntry.BindingContext = _powerunit;
+        PowerUnitWattEntry.SetBinding(Entry.TextProperty, "Name");
+        //Case
+        CaseNameEntry.BindingContext = _ram;
+        CaseNameEntry.SetBinding(Entry.TextProperty, "Name");
+
+        CaseFormFactorPicker.ItemsSource = _case.FormFactors;
+        //Other marks
+        MarksText.BindingContext = pc;
+        MarksText.SetBinding(Editor.TextProperty, "MarkText");
     }
 
     private void CpuSocketPicker_SelectedIndexChanged(object sender, EventArgs e)
@@ -93,6 +126,13 @@ public partial class PCConfig : ContentPage
         CheckCorrespond();
     }
 
+    private void MFormFactorPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        _motherboard.ActiveFormFactor = picker.Items[picker.SelectedIndex];
+        CheckCorrespond();
+    }
+
     private void MPCIEPicker_SelectedIndexChanged(object sender, EventArgs e)
     {
         var picker = (Picker)sender;
@@ -104,6 +144,19 @@ public partial class PCConfig : ContentPage
     {
         var picker = (Picker)sender;
         _ram.ActiveRAMType = picker.Items[picker.SelectedIndex];
+        CheckCorrespond();
+    }
+
+    private void VideocardPCIEPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        _videocard.ActivePCIE = picker.Items[picker.SelectedIndex];
+        CheckCorrespond();
+    }
+    private void CaseFormFactorPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        _case.ActiveFormFactor = picker.Items[picker.SelectedIndex];
         CheckCorrespond();
     }
 
@@ -133,7 +186,28 @@ public partial class PCConfig : ContentPage
             MRAMBox.Color = Colors.Red;
             RAMBox.Color = Colors.Red;
         }
-        
+        //FormFactor
+        if (_motherboard.ActiveFormFactor == _case.ActiveFormFactor)
+        {
+            MFormFactorBox.Color = Colors.Green;
+            CaseFormFactorBox.Color = Colors.Green;
+        }
+        else
+        {
+            MFormFactorBox.Color = Colors.Red;
+            CaseFormFactorBox.Color = Colors.Red;
+        }
+        //PCIExpress
+        if (_motherboard.ActivePCIE == _videocard.ActivePCIE)
+        {
+            MPCIBox.Color = Colors.Green;
+            VideocardBox.Color = Colors.Green;
+        }
+        else
+        {
+            MPCIBox.Color = Colors.Red;
+            VideocardBox.Color = Colors.Red;
+        }
     }
 
     public async void Save_button_Clicked(object sender, EventArgs e)
@@ -147,7 +221,15 @@ public partial class PCConfig : ContentPage
         pc.MotherboardSocket = _motherboard.ActiveSocket;
         pc.MotherboardRam = _motherboard.ActiveRAMType;
         pc.MotherboardPCI = _motherboard.ActivePCIE;
+        pc.MotherboardFormFactor = _motherboard.ActiveFormFactor;
         pc.RAMType = _ram.ActiveRAMType;
+        pc.VideocardName = _videocard.Name;
+        pc.VideocardPCIE = _videocard.ActivePCIE;
+        pc.CaseName = _case.Name;
+        pc.CaseFormFactor = _case.ActiveFormFactor;
+        pc.PowerUnitName = _powerunit.Name;
+        pc.PowerUnitWatt = _powerunit.Watt;
+        pc.MarkText = MarksText.Text;
         await _database.SaveItemAsync(pc);
         await Navigation.PopAsync();
     }
@@ -157,4 +239,5 @@ public partial class PCConfig : ContentPage
         await _database.DeleteItemAsync(pc);
         await Navigation.PopAsync();
     }
+
 }

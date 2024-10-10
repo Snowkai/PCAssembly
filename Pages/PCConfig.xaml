@@ -52,7 +52,12 @@
                     <Picker x:Name="MPCIEPicker" SelectedIndexChanged="MPCIEPicker_SelectedIndexChanged" />
                     <BoxView x:Name="MPCIBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
-            </VerticalStackLayout>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Form Factor" />
+                    <Picker x:Name="MFormFactorPicker" SelectedIndexChanged="MFormFactorPicker_SelectedIndexChanged" />
+                    <BoxView x:Name="MFormFactorBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                 </HorizontalStackLayout>
+                </VerticalStackLayout>
         </Border>
         <Border>
             <VerticalStackLayout>
@@ -68,7 +73,55 @@
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>
-        <HorizontalStackLayout>
+        <Border>
+            <VerticalStackLayout>
+                <Label Text="Videocard" FontAttributes="Bold" FontSize="16" />
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Name" />
+                    <Entry x:Name="VideocardNameEntry" Placeholder="Name of RAM" MinimumWidthRequest="200" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Type" />
+                    <Picker x:Name="VideocardPCIEPicker" SelectedIndexChanged="VideocardPCIEPicker_SelectedIndexChanged" />
+                    <BoxView x:Name="VideocardBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Border>
+            <Border>
+                <VerticalStackLayout>
+                    <Label Text="PowerUnit" FontAttributes="Bold" FontSize="16" />
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Name" />
+                        <Entry x:Name="PowerUnitNameEntry" Placeholder="Name of RAM" MinimumWidthRequest="200" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Watt" />
+                        <Entry x:Name="PowerUnitWattEntry" Placeholder="Name of RAM" MinimumWidthRequest="200" />
+                        <BoxView x:Name="PowerUnitBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+            <Border>
+                <VerticalStackLayout>
+                    <Label Text="Case" FontAttributes="Bold" FontSize="16" />
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Name" />
+                        <Entry x:Name="CaseNameEntry" Placeholder="Name of RAM" MinimumWidthRequest="200" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Type" />
+                        <Picker x:Name="CaseFormFactorPicker" SelectedIndexChanged="CaseFormFactorPicker_SelectedIndexChanged" />
+                        <BoxView x:Name="CaseFormFactorBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+            <Border>
+                <VerticalStackLayout>
+                    <Label Text="Other marks" FontAttributes="Bold" FontSize="16"/>
+                    <Editor x:Name="MarksText"/>
+                </VerticalStackLayout>
+            </Border>
+            <HorizontalStackLayout>
             <Button Text="Delete" Clicked="Delete_button_Clicked" HorizontalOptions="End"/>
             <Button Text="Save" Clicked="Save_button_Clicked" HorizontalOptions="End"/>
         </HorizontalStackLayout>
