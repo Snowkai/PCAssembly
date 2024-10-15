@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PCAssembly.src.pcinterfaces
+﻿namespace PCAssembly.src.pcinterfaces
 {
     internal class FormFactor
     {
@@ -13,7 +7,7 @@ namespace PCAssembly.src.pcinterfaces
         public FormFactor()
         {
             FormFactorType = "None";
-            AllTypes = new string[] { 
+            AllTypes = new string[] {
                 "ATX", "Micro-ATX", "Mini-ITX", "E-ATX", "XL-ATX"};
         }
 

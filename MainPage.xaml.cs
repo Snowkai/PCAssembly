@@ -1,5 +1,4 @@
-﻿using Microsoft.Maui.Controls;
-using PCAssembly.src.db;
+﻿using PCAssembly.src.db;
 using PCAssembly.src.db.Models;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
@@ -10,7 +9,7 @@ namespace PCAssembly
     {
         public MainPage()
         {
-            InitializeComponent();   
+            InitializeComponent();
             UpdateColView();
         }
 
@@ -44,8 +43,9 @@ namespace PCAssembly
                 };
                 configButton.Clicked += btnItem_Clicked;
 
-                return new StackLayout {
-                Children = {configButton} 
+                return new StackLayout
+                {
+                    Children = { configButton }
                 };
             });
         }
@@ -54,7 +54,7 @@ namespace PCAssembly
         {
             var button = sender as Button;
             var item = button?.BindingContext as PC;
-            if (item != null) 
+            if (item != null)
             {
                 await Navigation.PushAsync(new Pages.PCConfig(item));
             }

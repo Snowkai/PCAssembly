@@ -12,7 +12,7 @@ namespace PCAssembly.src.pcmodules
 
         private RAMType RAMType;
 
-        public RAM() 
+        public RAM()
         {
             Name = "None";
             ActiveRAMType = "None";

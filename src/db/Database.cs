@@ -1,10 +1,5 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PCAssembly.src.db.Models;
+﻿using PCAssembly.src.db.Models;
+using SQLite;
 
 namespace PCAssembly.src.db
 {

@@ -4,13 +4,13 @@
              x:Class="PCAssembly.MainPage" HideSoftInputOnTapped="True">
 
     <ScrollView>
-        <VerticalStackLayout x:Name="vsl">
+        <VerticalStackLayout x:Name="vsl" Spacing="10">
+            <Button ImageSource="plus.png" BackgroundColor="#1C1C1C" HorizontalOptions="Center" MaximumHeightRequest="100" Clicked="OnButtonCliked"/>
             <CollectionView x:Name="colView">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
                 </CollectionView.ItemsLayout>
             </CollectionView>
-                <Button ImageSource="plus.png" BackgroundColor="#1C1C1C" HorizontalOptions="Center" MaximumHeightRequest="100" Clicked="OnButtonCliked"/>
         </VerticalStackLayout>
     </ScrollView>
 

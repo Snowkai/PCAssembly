@@ -1,10 +1,4 @@
-﻿using PCAssembly.src.pcmodules;
-using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SQLite;
 
 namespace PCAssembly.src.db.Models
 {
@@ -29,6 +23,6 @@ namespace PCAssembly.src.db.Models
         public string CaseFormFactor { get; set; } = "None";
         public string PowerUnitName { get; set; } = "None";
         public string PowerUnitWatt { get; set; } = "None";
-        public string MarkText {  get; set; } = "None";
+        public string MarkText { get; set; } = "None";
     }
 }
