@@ -2,12 +2,12 @@
 using PCAssembly.src.db;
 using PCAssembly.src.db.Models;
 using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 
 namespace PCAssembly
 {
     public partial class MainPage : ContentPage
     {
-        private List<PC> PCConfigList;
         public MainPage()
         {
             InitializeComponent();   
@@ -22,7 +22,7 @@ namespace PCAssembly
             colView.ItemsSource = await db.GetItemsAsync();
         }
 
-        private async void OnButtonCliked(object sender, EventArgs e)
+        private async void OnButtonCliked(object? sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pages.PCConfig());
         }
@@ -37,8 +37,10 @@ namespace PCAssembly
                 configButton.BindingContextChanged += (sender, args) =>
                 {
                     var button = sender as Button;
-                    var item = button?.BindingContext as PC;
-                    button.Text = CreateString(item);
+                    if (button?.BindingContext is PC item)
+                    {
+                        button.Text = CreateString(item);
+                    }
                 };
                 configButton.Clicked += btnItem_Clicked;
 
@@ -48,11 +50,14 @@ namespace PCAssembly
             });
         }
 
-        private async void btnItem_Clicked(object sender, EventArgs e)
+        private async void btnItem_Clicked([AllowNull] object sender, EventArgs e)
         {
             var button = sender as Button;
             var item = button?.BindingContext as PC;
-            await Navigation.PushAsync(new Pages.PCConfig(item));
+            if (item != null) 
+            {
+                await Navigation.PushAsync(new Pages.PCConfig(item));
+            }
         }
 
         private string CreateString(PC item)
