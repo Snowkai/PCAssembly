@@ -162,51 +162,53 @@ public partial class PCConfig : ContentPage
 
     private void CheckCorrespond()
     {
+        string pathMatch = "Resources/Images/match.png";
+        string pathDontMatch = "Resources/Images/dont_match.png";
         //Socket
         if (_cpu.ActiveSocket == _motherboard.ActiveSocket)
         {
-            CPUSocketBox.Color = Colors.Green;
-            MSocketBox.Color = Colors.Green;
+            CPUSocketImage.Source = pathMatch;
+            MSocketImage.Source = pathMatch;
         }
         else
         {
-            CPUSocketBox.Color = Colors.Red;
-            MSocketBox.Color = Colors.Red;
+            CPUSocketImage.Source = pathDontMatch;
+            MSocketImage.Source = pathDontMatch;
         }
         //RAMType
         if (_cpu.ActiveRAMType == _motherboard.ActiveRAMType && _motherboard.ActiveRAMType == _ram.ActiveRAMType)
         {
-            CPURAMBox.Color = Colors.Green;
-            MRAMBox.Color = Colors.Green;
-            RAMBox.Color = Colors.Green;
+            CPURAMImage.Source = ImageSource.FromFile(pathMatch);
+            MRAMImage.Source = ImageSource.FromFile(pathMatch);
+            RAMTypeImage.Source = ImageSource.FromFile(pathMatch);
         }
         else
         {
-            CPURAMBox.Color = Colors.Red;
-            MRAMBox.Color = Colors.Red;
-            RAMBox.Color = Colors.Red;
+            CPURAMImage.Source = ImageSource.FromFile(pathDontMatch);
+            MRAMImage.Source = ImageSource.FromFile(pathDontMatch);
+            RAMTypeImage.Source = ImageSource.FromFile(pathDontMatch);
         }
         //FormFactor
         if (_motherboard.ActiveFormFactor == _case.ActiveFormFactor)
         {
-            MFormFactorBox.Color = Colors.Green;
-            CaseFormFactorBox.Color = Colors.Green;
+            MFormFactorImage.Source = ImageSource.FromFile(pathMatch);
+            CaseFormFactorImage.Source = ImageSource.FromFile(pathMatch);
         }
         else
         {
-            MFormFactorBox.Color = Colors.Red;
-            CaseFormFactorBox.Color = Colors.Red;
+            MFormFactorImage.Source = ImageSource.FromFile(pathDontMatch);
+            CaseFormFactorImage.Source = ImageSource.FromFile(pathDontMatch);
         }
         //PCIExpress
         if (_motherboard.ActivePCIE == _videocard.ActivePCIE)
         {
-            MPCIBox.Color = Colors.Green;
-            VideocardBox.Color = Colors.Green;
+            MPCIEImage.Source = ImageSource.FromFile(pathMatch);
+            VideocardPCIEImage.Source = ImageSource.FromFile(pathMatch);
         }
         else
         {
-            MPCIBox.Color = Colors.Red;
-            VideocardBox.Color = Colors.Red;
+            MPCIEImage.Source = ImageSource.FromFile(pathDontMatch);
+            VideocardPCIEImage.Source = ImageSource.FromFile(pathDontMatch);
         }
     }
 

@@ -21,12 +21,12 @@
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Socket" />
                     <Picker x:Name="CPUSocketPicker" SelectedIndexChanged="CpuSocketPicker_SelectedIndexChanged" />
-                    <BoxView x:Name="CPUSocketBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                    <Image x:Name = "CPUSocketImage" Source="unknown.png" />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="RAM" />
                     <Picker x:Name="CPURamPicker" SelectedIndexChanged="CpuRamPicker_SelectedIndexChanged" />
-                    <BoxView x:Name="CPURAMBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                    <Image x:Name = "CPURAMImage" Source="unknown.png" />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>
@@ -40,23 +40,23 @@
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Socket" />
                     <Picker x:Name="MSocketPicker" SelectedIndexChanged="MSocketPicker_SelectedIndexChanged" />
-                    <BoxView x:Name="MSocketBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                    <Image x:Name = "MSocketImage" Source="unknown.png" />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="RAM" />
                     <Picker x:Name="MRamPicker" SelectedIndexChanged="MRamPicker_SelectedIndexChanged" />
-                    <BoxView x:Name="MRAMBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                    <Image x:Name = "MRAMImage" Source="unknown.png" />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="PCIE" />
                     <Picker x:Name="MPCIEPicker" SelectedIndexChanged="MPCIEPicker_SelectedIndexChanged" />
-                    <BoxView x:Name="MPCIBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                    <Image x:Name = "MPCIEImage" Source="unknown.png" />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Form Factor" />
                     <Picker x:Name="MFormFactorPicker" SelectedIndexChanged="MFormFactorPicker_SelectedIndexChanged" />
-                    <BoxView x:Name="MFormFactorBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
-                 </HorizontalStackLayout>
+                    <Image x:Name = "MFormFactorImage" Source="unknown.png" />
+                </HorizontalStackLayout>
                 </VerticalStackLayout>
         </Border>
         <Border>
@@ -69,7 +69,7 @@
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Type" />
                     <Picker x:Name="RAMTypePicker" SelectedIndexChanged="RAMTypePicker_SelectedIndexChanged" />
-                    <BoxView x:Name="RAMBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                    <Image x:Name = "RAMTypeImage" Source="unknown.png" />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>
@@ -83,7 +83,7 @@
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Type" />
                     <Picker x:Name="VideocardPCIEPicker" SelectedIndexChanged="VideocardPCIEPicker_SelectedIndexChanged" />
-                    <BoxView x:Name="VideocardBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                    <Image x:Name = "VideocardPCIEImage" Source="unknown.png" />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>
@@ -96,8 +96,7 @@
                     </HorizontalStackLayout>
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="Watt" />
-                        <Entry x:Name="PowerUnitWattEntry" Placeholder="Name of RAM" MinimumWidthRequest="200" />
-                        <BoxView x:Name="PowerUnitBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                        <Entry x:Name="PowerUnitWattEntry" Placeholder="Name of RAM" MinimumWidthRequest="200" Keyboard="Numeric"/>
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
             </Border>
@@ -111,7 +110,7 @@
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="Type" />
                         <Picker x:Name="CaseFormFactorPicker" SelectedIndexChanged="CaseFormFactorPicker_SelectedIndexChanged" />
-                        <BoxView x:Name="CaseFormFactorBox" Color="Yellow" CornerRadius="2" MinimumHeightRequest="20" MinimumWidthRequest="20" VerticalOptions="Center"/>
+                        <Image x:Name = "CaseFormFactorImage" Source="unknown.png" />
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
             </Border>
