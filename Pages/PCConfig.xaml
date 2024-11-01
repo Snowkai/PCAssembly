@@ -16,17 +16,17 @@
                 <Label Text="CPU" FontAttributes="Bold" FontSize="16" />
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Name" VerticalOptions="Center"/>
-                    <Entry x:Name="CPUNameEntry" Placeholder="Name of CPU" MinimumWidthRequest="200" />
+                    <Entry x:Name="CPUNameEntry" Placeholder="Name of CPU" MaximumHeightRequest="30" />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Socket" />
                     <Picker x:Name="CPUSocketPicker" SelectedIndexChanged="CpuSocketPicker_SelectedIndexChanged" />
-                    <Image x:Name = "CPUSocketImage" Source="unknown.png" />
+                    <Image x:Name = "CPUSocketImage" Source="unknown.png" MaximumHeightRequest="30"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="RAM" />
                     <Picker x:Name="CPURamPicker" SelectedIndexChanged="CpuRamPicker_SelectedIndexChanged" />
-                    <Image x:Name = "CPURAMImage" Source="unknown.png" />
+                    <Image x:Name = "CPURAMImage" Source="unknown.png" MaximumHeightRequest="30"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>
@@ -40,22 +40,22 @@
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Socket" />
                     <Picker x:Name="MSocketPicker" SelectedIndexChanged="MSocketPicker_SelectedIndexChanged" />
-                    <Image x:Name = "MSocketImage" Source="unknown.png" />
+                    <Image x:Name = "MSocketImage" Source="unknown.png" MaximumHeightRequest="30"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="RAM" />
                     <Picker x:Name="MRamPicker" SelectedIndexChanged="MRamPicker_SelectedIndexChanged" />
-                    <Image x:Name = "MRAMImage" Source="unknown.png" />
+                    <Image x:Name = "MRAMImage" Source="unknown.png" MaximumHeightRequest="30"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="PCIE" />
                     <Picker x:Name="MPCIEPicker" SelectedIndexChanged="MPCIEPicker_SelectedIndexChanged" />
-                    <Image x:Name = "MPCIEImage" Source="unknown.png" />
+                    <Image x:Name = "MPCIEImage" Source="unknown.png" MaximumHeightRequest="30"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Form Factor" />
                     <Picker x:Name="MFormFactorPicker" SelectedIndexChanged="MFormFactorPicker_SelectedIndexChanged" />
-                    <Image x:Name = "MFormFactorImage" Source="unknown.png" />
+                    <Image x:Name = "MFormFactorImage" Source="unknown.png" MaximumHeightRequest="30"/>
                 </HorizontalStackLayout>
                 </VerticalStackLayout>
         </Border>
@@ -69,7 +69,7 @@
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Type" />
                     <Picker x:Name="RAMTypePicker" SelectedIndexChanged="RAMTypePicker_SelectedIndexChanged" />
-                    <Image x:Name = "RAMTypeImage" Source="unknown.png" />
+                    <Image x:Name = "RAMTypeImage" Source="unknown.png" MaximumHeightRequest="30"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>
@@ -78,12 +78,12 @@
                 <Label Text="Videocard" FontAttributes="Bold" FontSize="16" />
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Name" />
-                    <Entry x:Name="VideocardNameEntry" Placeholder="Name of RAM" MinimumWidthRequest="200" />
+                    <Entry x:Name="VideocardNameEntry" Placeholder="Name of Videocard" MinimumWidthRequest="200" />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Type" />
                     <Picker x:Name="VideocardPCIEPicker" SelectedIndexChanged="VideocardPCIEPicker_SelectedIndexChanged" />
-                    <Image x:Name = "VideocardPCIEImage" Source="unknown.png" />
+                    <Image x:Name = "VideocardPCIEImage" Source="unknown.png" MaximumHeightRequest="30"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>
@@ -92,11 +92,11 @@
                     <Label Text="PowerUnit" FontAttributes="Bold" FontSize="16" />
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="Name" />
-                        <Entry x:Name="PowerUnitNameEntry" Placeholder="Name of RAM" MinimumWidthRequest="200" />
+                        <Entry x:Name="PowerUnitNameEntry" Placeholder="Name of PowerUnit" MinimumWidthRequest="200" />
                     </HorizontalStackLayout>
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="Watt" />
-                        <Entry x:Name="PowerUnitWattEntry" Placeholder="Name of RAM" MinimumWidthRequest="200" Keyboard="Numeric"/>
+                        <Entry x:Name="PowerUnitWattEntry" Placeholder="Watt" MinimumWidthRequest="200" Keyboard="Numeric"/>
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
             </Border>
@@ -105,12 +105,12 @@
                     <Label Text="Case" FontAttributes="Bold" FontSize="16" />
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="Name" />
-                        <Entry x:Name="CaseNameEntry" Placeholder="Name of RAM" MinimumWidthRequest="200" />
+                        <Entry x:Name="CaseNameEntry" Placeholder="Name of Case" MinimumWidthRequest="200" />
                     </HorizontalStackLayout>
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="Type" />
                         <Picker x:Name="CaseFormFactorPicker" SelectedIndexChanged="CaseFormFactorPicker_SelectedIndexChanged" />
-                        <Image x:Name = "CaseFormFactorImage" Source="unknown.png" />
+                        <Image x:Name = "CaseFormFactorImage" Source="unknown.png" MaximumHeightRequest="30"/>
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
             </Border>

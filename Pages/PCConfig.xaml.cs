@@ -162,53 +162,53 @@ public partial class PCConfig : ContentPage
 
     private void CheckCorrespond()
     {
-        string pathMatch = "Resources/Images/match.png";
-        string pathDontMatch = "Resources/Images/dont_match.png";
+        var match = ImageSource.FromFile("match.png");
+        var dont_match = ImageSource.FromFile("dont_match.png");
         //Socket
         if (_cpu.ActiveSocket == _motherboard.ActiveSocket)
         {
-            CPUSocketImage.Source = pathMatch;
-            MSocketImage.Source = pathMatch;
+            CPUSocketImage.Source = match;
+            MSocketImage.Source = match;
         }
         else
         {
-            CPUSocketImage.Source = pathDontMatch;
-            MSocketImage.Source = pathDontMatch;
+            CPUSocketImage.Source = dont_match;
+            MSocketImage.Source = dont_match;
         }
         //RAMType
         if (_cpu.ActiveRAMType == _motherboard.ActiveRAMType && _motherboard.ActiveRAMType == _ram.ActiveRAMType)
         {
-            CPURAMImage.Source = ImageSource.FromFile(pathMatch);
-            MRAMImage.Source = ImageSource.FromFile(pathMatch);
-            RAMTypeImage.Source = ImageSource.FromFile(pathMatch);
+            CPURAMImage.Source = match;
+            MRAMImage.Source = match;
+            RAMTypeImage.Source = match;
         }
         else
         {
-            CPURAMImage.Source = ImageSource.FromFile(pathDontMatch);
-            MRAMImage.Source = ImageSource.FromFile(pathDontMatch);
-            RAMTypeImage.Source = ImageSource.FromFile(pathDontMatch);
+            CPURAMImage.Source = dont_match;
+            MRAMImage.Source = dont_match;
+            RAMTypeImage.Source = dont_match;
         }
         //FormFactor
         if (_motherboard.ActiveFormFactor == _case.ActiveFormFactor)
         {
-            MFormFactorImage.Source = ImageSource.FromFile(pathMatch);
-            CaseFormFactorImage.Source = ImageSource.FromFile(pathMatch);
+            MFormFactorImage.Source = match;
+            CaseFormFactorImage.Source = match;
         }
         else
         {
-            MFormFactorImage.Source = ImageSource.FromFile(pathDontMatch);
-            CaseFormFactorImage.Source = ImageSource.FromFile(pathDontMatch);
+            MFormFactorImage.Source = dont_match;
+            CaseFormFactorImage.Source = dont_match;
         }
         //PCIExpress
         if (_motherboard.ActivePCIE == _videocard.ActivePCIE)
         {
-            MPCIEImage.Source = ImageSource.FromFile(pathMatch);
-            VideocardPCIEImage.Source = ImageSource.FromFile(pathMatch);
+            MPCIEImage.Source = match;
+            VideocardPCIEImage.Source = match;
         }
         else
         {
-            MPCIEImage.Source = ImageSource.FromFile(pathDontMatch);
-            VideocardPCIEImage.Source = ImageSource.FromFile(pathDontMatch);
+            MPCIEImage.Source = dont_match;
+            VideocardPCIEImage.Source = dont_match;
         }
     }
 
