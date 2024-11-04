@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Archive>
+  <Name>PCAssembly</Name>
+  <PackageName>com.companyname.pcassembly</PackageName>
+  <PackageVersionCode>1</PackageVersionCode>
+  <PackageVersionName>1.0</PackageVersionName>
+  <PackageFormat>aab</PackageFormat>
+  <CreationDate>638663194535358908</CreationDate>
+  <SolutionName>PCAssembly</SolutionName>
+  <SolutionPath>C:\Users\Arktos\source\repos\PCAssembly\PCAssembly.sln</SolutionPath>
+  <Status></Status>
+  <MinSdkVersion>28</MinSdkVersion>
+  <Configuration>
+    <DebugMode>false</DebugMode>
+  </Configuration>
+</Archive>
