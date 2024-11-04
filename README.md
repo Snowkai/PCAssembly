@@ -1,0 +1,1 @@
+This is an application for creating computer configurations with the ability to store, edit and delete them. The compliance of the components with each other is also checked. Inside the project there is a folder with installation versions for Windows and Android, and there are also screenshots of the application.
