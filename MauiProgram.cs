@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace PCAssembly
 {
@@ -13,8 +14,11 @@ namespace PCAssembly
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                })               
+                .Configuration.AddInMemoryCollection(new Dictionary<string, string>
+                {
+                    { "MauiSplashScreen", "Resources/Images/splashscreen.png" }
                 });
-
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

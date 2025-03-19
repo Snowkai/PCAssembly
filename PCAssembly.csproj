@@ -58,6 +58,7 @@
 	<ItemGroup>
 		<!-- App Icon -->
     <MauiIcon Include="Resources\AppIcon\appicon.png" />
+    <MauiSplashScreen Include="Resources\Images\splashscreen.png" />
 
 
 		<!-- Splash Screen -->
@@ -65,7 +66,6 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -81,6 +81,10 @@
 	  <MauiCss Remove="Resources\src\**" />
 	  <MauiXaml Remove="Resources\src\**" />
 	  <None Remove="Resources\src\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\splashscreen.png" />
 	</ItemGroup>
 
 	<ItemGroup>
